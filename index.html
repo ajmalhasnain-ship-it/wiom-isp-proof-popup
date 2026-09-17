@@ -19,12 +19,23 @@ button{font-family:inherit;cursor:pointer}
   padding:calc(40px + env(safe-area-inset-top)) 24px calc(96px + env(safe-area-inset-bottom))}
 
 /* ── In-phone "upload proof" animation (loops) ── */
-.device{position:relative;width:132px;height:250px;margin:0 auto 20px;background:#fff;border-radius:30px;
-  padding:7px;box-shadow:0 14px 30px rgba(0,0,0,.22)}
+.device{position:relative;z-index:1;width:132px;height:250px;margin:0 auto 22px;background:#fff;border-radius:30px;
+  padding:7px;box-shadow:0 16px 34px rgba(0,0,0,.24),0 0 64px rgba(255,255,255,.16);
+  animation:float 4.5s ease-in-out infinite}
+.device::before{content:"";position:absolute;left:-2px;top:56px;width:3px;height:20px;border-radius:2px;background:#EAE0E8}
+.device::after{content:"";position:absolute;right:-2px;top:76px;width:3px;height:34px;border-radius:2px;background:#EAE0E8}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .device .screen{position:relative;width:100%;height:100%;background:#FCEFF7;border-radius:24px;overflow:hidden;
   display:flex;flex-direction:column;align-items:center}
-.notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:42px;height:10px;border-radius:6px;
-  background:#2b2130;z-index:6}
+.statusbar{position:absolute;top:0;left:0;right:0;height:24px;display:flex;align-items:center;justify-content:space-between;
+  padding:7px 12px 0;font-size:9px;font-weight:700;color:#9A7789;letter-spacing:.2px;z-index:5}
+.bat{position:relative;display:inline-block;width:15px;height:8px;border:1.2px solid #9A7789;border-radius:2px}
+.bat::after{content:"";position:absolute;right:-3px;top:2px;width:2px;height:3px;background:#9A7789;border-radius:0 1px 1px 0}
+.bat i{position:absolute;left:1px;top:1px;bottom:1px;width:70%;background:#9A7789;border-radius:1px}
+.notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:44px;height:11px;border-radius:6px;
+  background:#2b2130;z-index:7}
+.notch::after{content:"";position:absolute;right:7px;top:50%;transform:translateY(-50%);width:4px;height:4px;
+  border-radius:50%;background:#5b4a54}
 .homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:48px;height:4px;border-radius:2px;
   background:rgba(43,33,48,.32);z-index:6}
 .proof{width:76px;background:#fff;border:1px solid #F3C7E4;border-radius:8px;padding:9px}
@@ -54,13 +65,13 @@ button{font-family:inherit;cursor:pointer}
   box-shadow:inset 0 0 0 2px #fff;animation:shutter 5.5s ease-in-out infinite}
 /* upload button */
 .upbtn{background:#D9008D;color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:9px;
-  animation:tap 5.5s ease-in-out infinite}
+  box-shadow:0 4px 10px rgba(217,0,141,.3);animation:tap 5.5s ease-in-out infinite}
 /* progress */
 .bar{width:86px;height:8px;background:#F3C7E4;border-radius:5px;overflow:hidden}
 .bar i{display:block;height:100%;width:0;background:#D9008D;border-radius:5px;animation:fill 5.5s ease-in-out infinite}
 .plabel{font-size:11px;color:#8A5B76;font-weight:600}
 /* done */
-.tick{width:38px;height:38px;border-radius:50%;background:#008043;display:flex;align-items:center;justify-content:center}
+.tick{width:38px;height:38px;border-radius:50%;background:#008043;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px rgba(0,128,67,.32)}
 .donetxt{font-size:14px;color:#008043;font-weight:700}
 @keyframes fcap {0%{opacity:1}24%{opacity:1}29%{opacity:0}100%{opacity:0}}
 @keyframes flash{0%,9%{opacity:0}14%{opacity:.9}20%{opacity:0}100%{opacity:0}}
@@ -69,11 +80,11 @@ button{font-family:inherit;cursor:pointer}
 @keyframes tap {0%,36%{transform:scale(1)}40%{transform:scale(.9)}44%{transform:scale(1)}100%{transform:scale(1)}}
 @keyframes fprog{0%,47%{opacity:0}51%{opacity:1}71%{opacity:1}75%{opacity:0}100%{opacity:0}}
 @keyframes fill {0%,49%{width:0}70%{width:100%}75%{width:100%}76%{width:0}100%{width:0}}
-@keyframes fdone{0%,74%{opacity:0;transform:scale(.85)}79%{opacity:1;transform:scale(1)}92%{opacity:1;transform:scale(1)}97%{opacity:0}100%{opacity:0}}
+@keyframes fdone{0%,74%{opacity:0;transform:scale(.5)}80%{opacity:1;transform:scale(1.12)}85%{transform:scale(.97)}89%{opacity:1;transform:scale(1)}92%{opacity:1;transform:scale(1)}97%{opacity:0}100%{opacity:0}}
 
 /* ── Copy · T2_24_Bold ── */
-.title{font-size:21px;font-weight:700;line-height:1.5;letter-spacing:-.1px;max-width:288px;color:#fff;
-  animation:rise .45s .15s both}
+.title{font-size:22px;font-weight:700;line-height:1.5;letter-spacing:-.1px;max-width:290px;color:#fff;
+  text-wrap:balance;text-shadow:0 1px 2px rgba(0,0,0,.12);animation:rise .45s .15s both}
 
 /* ── CTA bar · white button, pink text ── */
 .ctabar{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--brand);
@@ -81,7 +92,7 @@ button{font-family:inherit;cursor:pointer}
   animation:rise .45s .3s both}
 .btn{display:block;width:100%;max-width:328px;margin:0 auto;padding:14px;
   border-radius:16px;border:none;font-size:16px;font-weight:700}
-.btn-primary{background:#fff;color:var(--brand)}
+.btn-primary{background:#fff;color:var(--brand);box-shadow:0 8px 20px rgba(0,0,0,.18)}
 .btn-primary:active{transform:scale(.98)}
 
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
@@ -92,6 +103,7 @@ button{font-family:inherit;cursor:pointer}
 <section class="blocker">
   <div class="device" aria-hidden="true">
     <div class="screen">
+      <div class="statusbar"><span>9:41</span><span class="bat"><i></i></span></div>
       <!-- 1 · capture: photo of the recharge is clicked -->
       <div class="st cap">
         <div class="vf">
