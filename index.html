@@ -21,7 +21,7 @@ button{font-family:inherit;cursor:pointer}
 /* ── In-phone "upload proof" animation (loops) ── */
 .device{position:relative;z-index:1;width:132px;height:250px;margin:0 auto 22px;background:#fff;border-radius:30px;
   padding:7px;box-shadow:0 16px 34px rgba(0,0,0,.24),0 0 64px rgba(255,255,255,.16);
-  animation:float 4.5s ease-in-out infinite}
+  animation:float 4.5s ease-in-out infinite;margin-bottom:32px}
 .device::before{content:"";position:absolute;left:-2px;top:56px;width:3px;height:20px;border-radius:2px;background:#EAE0E8}
 .device::after{content:"";position:absolute;right:-2px;top:76px;width:3px;height:34px;border-radius:2px;background:#EAE0E8}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
@@ -44,7 +44,7 @@ button{font-family:inherit;cursor:pointer}
 .proof .chip{height:10px;width:44%;border-radius:3px;background:#D9008D;margin-top:2px}
 /* cross-fading stages: capture → submit → progress → done (loops) */
 .st{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:12px;padding:14px 12px;opacity:0}
+  gap:12px;padding:14px 6px;opacity:0}
 .st.cap {animation:fcap  5.5s ease-in-out infinite}
 .st.sub {animation:fsub  5.5s ease-in-out infinite}
 .st.prog{animation:fprog 5.5s ease-in-out infinite}
@@ -62,10 +62,10 @@ button{font-family:inherit;cursor:pointer}
 .cnr.br{bottom:-6px;right:-6px;border-left:0;border-top:0;border-bottom-right-radius:4px}
 .flash{position:absolute;inset:0;background:#fff;opacity:0;border-radius:8px;animation:flash 5.5s ease-in-out infinite}
 .shutter{width:34px;height:34px;border-radius:50%;background:#fff;border:3px solid #D9008D;
-  box-shadow:inset 0 0 0 2px #fff;animation:shutter 5.5s ease-in-out infinite}
+  box-shadow:inset 0 0 0 2px #fff;margin-top:16px;animation:shutter 5.5s ease-in-out infinite}
 /* upload button */
-.upbtn{background:#D9008D;color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:9px;
-  box-shadow:0 4px 10px rgba(217,0,141,.3);animation:tap 5.5s ease-in-out infinite}
+.upbtn{background:#D9008D;color:#fff;font-size:11px;font-weight:700;padding:8px 13px;border-radius:9px;
+  white-space:nowrap;box-shadow:0 4px 10px rgba(217,0,141,.3);animation:tap 5.5s ease-in-out infinite}
 /* progress */
 .bar{width:86px;height:8px;background:#F3C7E4;border-radius:5px;overflow:hidden}
 .bar i{display:block;height:100%;width:0;background:#D9008D;border-radius:5px;animation:fill 5.5s ease-in-out infinite}
@@ -83,7 +83,7 @@ button{font-family:inherit;cursor:pointer}
 @keyframes fdone{0%,74%{opacity:0;transform:scale(.5)}80%{opacity:1;transform:scale(1.12)}85%{transform:scale(.97)}89%{opacity:1;transform:scale(1)}92%{opacity:1;transform:scale(1)}97%{opacity:0}100%{opacity:0}}
 
 /* ── Copy · T2_24_Bold ── */
-.title{font-size:22px;font-weight:700;line-height:1.5;letter-spacing:-.1px;max-width:290px;color:#fff;
+.title{font-size:25px;font-weight:700;line-height:1.48;letter-spacing:-.2px;max-width:296px;color:#fff;
   text-wrap:balance;text-shadow:0 1px 2px rgba(0,0,0,.12);animation:rise .45s .15s both}
 
 /* ── CTA bar · white button, pink text ── */
